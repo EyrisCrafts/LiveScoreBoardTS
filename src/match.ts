@@ -14,10 +14,14 @@ export class Match {
     }
 
     updateScore(homeTeamScore: number, awayTeamScore: number): void {
-        throw new Error("Not yet implemented");
+        if (homeTeamScore < 0 || awayTeamScore < 0) {
+            throw new Error("Score cannot be negative");
+        }
+        this.scoreHomeTeam = homeTeamScore;
+        this.scoreAwayTeam = awayTeamScore;
     }
-    
+
     getTotalScore(): number {
-        throw new Error("Not yet implemented");
+        return this.scoreHomeTeam + this.scoreAwayTeam;
     }
 }
