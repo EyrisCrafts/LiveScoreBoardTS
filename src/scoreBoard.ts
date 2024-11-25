@@ -10,6 +10,10 @@ export class ScoreBoard {
     }
 
     updateScore(homeTeam: string, awayTeam: string, scoreHome: number, scoreAway: number): void {
+        if (scoreHome < 0 || scoreAway < 0) {
+            throw new Error("Scores must be positive numbers.");
+        }
+        
         const match = this.findMatch(homeTeam, awayTeam);
         if (match) {
             match.updateScore(scoreHome, scoreAway);
