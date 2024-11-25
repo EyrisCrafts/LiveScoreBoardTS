@@ -7,6 +7,12 @@ test("startMatch", () => {
     expect(scoreboard["matches"].length).toBe(1);
     expect(scoreboard["matches"][0].homeTeam).toBe("Mexico");
     expect(scoreboard["matches"][0].awayTeam).toBe("Canada");
+    
+    scoreboard.startMatch("Spain", "Brazil");
+
+    expect(scoreboard["matches"].length).toBe(2);
+    expect(scoreboard["matches"][1].homeTeam).toBe("Spain");
+    expect(scoreboard["matches"][1].awayTeam).toBe("Brazil");
 });
 
 test("updateScore valid", () => {
